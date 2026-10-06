@@ -1,0 +1,129 @@
+/* === RESET === */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === PAGE STYLING === */
+body {
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  padding: 2rem;
+  background: #f0f0f0;
+  color: #333;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+/* === THE PAGE (HOLY GRAIL) === */
+.page {
+  background: #fff;
+  border: 3px solid #333;
+  border-radius: 8px;
+  /* Fill the viewport height. The 4rem subtracts the body's
+     2rem top + 2rem bottom padding so the page doesn't overflow
+     and cause a scrollbar. If you change body's padding, update
+     this number to match. */
+  min-height: calc(100vh - 4rem);
+  padding: 1rem;
+
+  display: grid; /* Make the page's direct children grid items. */
+  grid-template-columns: 1fr 3fr 1fr; /* Give the middle column 3x each side column's share. */
+  grid-template-rows: auto 1fr auto; /* Let header/footer fit content; main row fills remaining height. */
+  gap: 16px; /* Add space between grid rows and columns. */
+
+  /* Each string is a row; repeating an area name makes it span columns. */
+  grid-template-areas:
+    "header header header"
+    "nav    main   aside"
+    "footer footer footer";
+}
+
+/* === PAGE REGIONS === */
+.header,
+.nav,
+.main,
+.aside,
+.footer {
+  padding: 1rem;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.header {
+  background: #e06c75;
+  grid-area: header; /* Place this item in the matching named page area. */
+}
+
+.nav {
+  background: #61afef;
+  grid-area: nav; /* Match this name to the nav slot in .page's template. */
+}
+
+.main {
+  background: #98c379;
+  grid-area: main; /* Match this name to the main slot in .page's template. */
+}
+
+.aside {
+  background: #e5c07b;
+  grid-area: aside; /* Match this name to the aside slot in .page's template. */
+}
+
+.footer {
+  background: #c678dd;
+  grid-area: footer; /* The named area already spans all three columns. */
+}
+
+.nav ul {
+  list-style: none;
+}
+
+.nav a {
+  color: #fff;
+}
+
+/* === THE CARD GALLERY (lives inside .main) === */
+.cards {
+  margin-top: 1.5rem;
+
+  display: grid; /* Lay out cards in rows and columns. */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Fit as many 200px-minimum columns as possible. */
+  gap: 16px; /* Keep consistent spacing between cards. */
+}
+
+.card {
+  background: #fff;
+  border: 3px solid #333;
+  border-radius: 8px;
+  padding: 1rem;
+  color: #333;
+}
+
+/* The bottom row of each card: a tag on the left, a link on
+   the right. Base styles only — laid out with flex below. */
+.card-footer {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #ddd;
+
+  display: flex; /* Arrange the tag and link in one row. */
+  justify-content: space-between; /* Push the first and last items to opposite ends. */
+  align-items: center; /* Align both items along the row's center line. */
+}
+
+.tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #eee;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
