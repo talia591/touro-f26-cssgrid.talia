@@ -1,0 +1,11 @@
+body{
+  background-color: aqua
+min-hight 100vh;
+}
+.page {
+  background-color: blue;
+  min-height: 80vh
+}
+header{
+  background-color: blueviolet;
+}

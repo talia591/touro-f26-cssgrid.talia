@@ -4,12 +4,12 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "ritwickdey.liveserver",
         "github.copilot",
         "github.copilot-chat",
         "esbenp.prettier-vscode",
         "formulahendry.auto-rename-tag",
         "ms-vscode.vscode-html-css-preview",
-        "ritwickdey.liveserver",
         "htmlhint.vshtmlhint",
         "zignd.html-css-class-completion"
       ],
